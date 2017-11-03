@@ -17,8 +17,10 @@
             $stateProvider
                 .state('Room', {
                 url: '/Room',
-                controller: 'RoomCtrl as Room'
                 templateUrl: '/templates/home.html'
+                controller: function($scope) {
+                  $scope.room = ['all'];
+                }
                });
         }
 
