@@ -13,16 +13,9 @@
                     controller: 'HomeCtrl as home',
                     templateUrl: '/templates/home.html'
                 });
-
-            $stateProvider
-                .state('Room', {
-                url: '/Room',
-                controller: 'RoomCtrl as room'
-                templateUrl: '/templates/home.html'
-               });
         }
 
     angular
-        .module('projectName', ['ui.router', 'firebase'])
+        .module('blocChat', ['ui.router', 'firebase'])
         .config(config);
 })();
