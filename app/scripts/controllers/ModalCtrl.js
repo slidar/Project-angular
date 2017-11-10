@@ -7,3 +7,15 @@
         controller: 'ModalInstanceCtrl as modal',
         size: 'sm'
       });
+
+      modalInstance.result.then(function(name) {
+        this.room = name;
+        Room.add(this.room);
+      });
+    };
+  }
+
+  angular
+    .module('blocChat')
+    .controller('ModalCtrl', ['$uibModal', 'Room', ModalCtrl]);
+})();
