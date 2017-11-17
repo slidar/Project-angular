@@ -1,5 +1,7 @@
 <div class="home">
   <ul class="rooms">
-    <li class="room" ng-repeat="room in home.rooms">{{room.$value}}</li>
+    <li class="room" ng-repeat="room in home.rooms | orderBy: '$value'">{{room.$value}}</li>
   </ul>
+
+  <button ng-click="home.addNewRoom()" class="btn btn-primary">Add Room</button>
 </div>
