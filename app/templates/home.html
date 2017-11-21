@@ -4,4 +4,9 @@
   </ul>
 
   <button ng-click="home.addNewRoom()" class="btn btn-primary">Add Room</button>
+
+  <div class="chat-section">
+    <h3 style="text-align:center;">{{ home.currentRoom.name}}</h3>
+    <div class="messages" ng-repeat="message in home.messages">
+      <div class="username" style="text-align:center;">{{ message.username }}</div>
 </div>
