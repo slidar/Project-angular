@@ -17,6 +17,13 @@
           Room.add(roomName);
         }, function (error) {});
       };
+
+      this.activeRoom = null;
+      this.changeRoom = function(room) {
+        this.activeRoom = room;
+        this.messages = Message.getByRoomId(this.activeRoom.$id);
+      };
+      
     }
 
     angular
