@@ -1,6 +1,8 @@
 (function() {
     function HomeCtrl(Room, Message, $uibModal) {
+
       this.rooms = Room.all;
+      this.currentRoom = null;
 
       this.addNewRoom = function () {
         // open the modal
