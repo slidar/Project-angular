@@ -1,7 +1,17 @@
 <div class="home">
-  <ul class="rooms">
-    <li class="room" ng-repeat="room in home.rooms | orderBy: '$value'">{{room.$value}}</li>
-  </ul>
+  <div class="room-listing">
+    <ul class="rooms">
+      <li class="room" ng-repeat="room in home.rooms | orderBy: '$value'" ng-click="home.selectRoom(room)">{{room.$value}}</li>
+    </ul>
 
-  <button ng-click="home.addNewRoom()" class="btn btn-primary">Add Room</button>
+    <button ng-click="home.addNewRoom()" class="btn btn-primary">Add Room</button>
+  </div>
+
+  <div class="room-content">
+    <h3>{{home.selectedRoom.$value}}</h3>
+
+    <div class="message-list">
+      <div class="message" ng-repeat="message in home.selectedRoomMessages"><b>{{message.username}}</b>: {{message.content}}</div>
+    </div>
+  </div>
 </div>
