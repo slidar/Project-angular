@@ -5,7 +5,7 @@
         };
 
         this.ok = function () {
-            $uibModalInstance.close(this.roomName);
+            $uibModalInstance.close(this.Username);
         };
     }
 
