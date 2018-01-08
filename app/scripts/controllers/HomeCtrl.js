@@ -1,8 +1,9 @@
 (function() {
-    function HomeCtrl(Room, $uibModal, Message) {
+    function HomeCtrl(Room, $uibModal, Message, $cookies) {
       this.rooms = Room.all;
       this.selectedRoom = null;
       this.selectedRoomMessages = [];
+      home.currentUser = $cookies.get('blocChatCurrentUser');
 
       this.addNewRoom = function () {
         // open the modal
@@ -26,6 +27,8 @@
         this.selectedRoomMessages = Message.getByRoomId(room.$id);
       };
     }
+
+
 
     angular
         .module('blocChat')
