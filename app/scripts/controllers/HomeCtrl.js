@@ -3,7 +3,7 @@
       this.rooms = Room.all;
       this.selectedRoom = null;
       this.selectedRoomMessages = [];
-      home.currentUser = $cookies.get('blocChatCurrentUser');
+      this.currentUser = $cookies.get('blocChatCurrentUser');
 
       this.addNewRoom = function () {
         // open the modal
@@ -21,10 +21,14 @@
         }, function (error) {});
       };
 
-      this.selectRoom = function (room) {
-        this.selectedRoom = room;
+      this.changeRoom = function(room) {
+        this.activeRoom = room;
+        this.messages = Message.getByRoomId(this.activeRoom.$id);
+      };
 
-        this.selectedRoomMessages = Message.getByRoomId(room.$id);
+      this.sendMessage = function() {
+        Message.send(this.newMessage, this.activeRoom);
+        this.newMessage = '';
       };
     }
 
@@ -32,5 +36,5 @@
 
     angular
         .module('blocChat')
-        .controller('HomeCtrl', ['Room', '$uibModal', 'Message', HomeCtrl]);
+        .controller('HomeCtrl', ['Room', '$uibModal', 'Message', '$cookies', HomeCtrl]);
 })();
